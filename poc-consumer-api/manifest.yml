@@ -1,0 +1,15 @@
+applications:
+  - name: poc-consumer-api
+    memory: 1024M
+    instances: 1
+    buildpack: java_buildpack_offline
+    stack: cflinuxfs3
+    routes:
+      - route: poc-consumer-api-ENVIRONMENT-ROUTE
+
+    path: build/libs/poc-consumer-api-0.0.1-SNAPSHOT.jar
+#    env:
+#      SPRING_PROFILES_ACTIVE: prod
+    services:
+      - ServiceRegistry
+    no-route: false

@@ -1,0 +1,15 @@
+applications:
+  - name: poc-provider-api
+    memory: 1024M
+    instances: 1
+    buildpack: java_buildpack_offline
+    stack: cflinuxfs3
+#    routes:
+#      - route: poc-provider-api-ENVIRONMENT-ROUTE
+
+    path: build/libs/poc-provider-api-0.0.1-SNAPSHOT.jar
+#    env:
+#      SPRING_PROFILES_ACTIVE: prod
+    services:
+      - ServiceRegistry
+    no-route: true
